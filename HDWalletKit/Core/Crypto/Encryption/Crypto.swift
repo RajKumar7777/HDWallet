@@ -31,8 +31,9 @@ public final class Crypto {
     
     public static func generatePublicKey(data: Data, compressed: Bool) -> Data {
         let encrypter = EllipticCurveEncrypterSecp256k1()
-        var publicKey = encrypter.createPublicKey(privateKey: data)
-        return encrypter.export(publicKey: &publicKey, compressed: compressed)
+       // var publicKey = encrypter.createPublicKey(privateKey: data)
+       // return encrypter.export(publicKey: &publicKey, compressed: compressed)
+        return Data.init()
     }
     
     public static func sha3keccak256(data:Data) -> Data {
@@ -45,10 +46,11 @@ public final class Crypto {
     
     public static func sign(_ hash: Data, privateKey: Data) throws -> Data {
         let encrypter = EllipticCurveEncrypterSecp256k1()
-        guard var signatureInInternalFormat = encrypter.sign(hash: hash, privateKey: privateKey) else {
-            throw HDWalletKitError.failedToSign
-        }
-        return encrypter.export(signature: &signatureInInternalFormat)
+       // guard var signatureInInternalFormat = encrypter.sign(hash: hash, privateKey: privateKey) else {
+           // throw HDWalletKitError.failedToSign
+      //  }
+       // return encrypter.export(signature: &signatureInInternalFormat)
+        return Data.init()
     }
     
     public static func verifySigData(for tx: Transaction, inputIndex: Int, utxo: TransactionOutput, sigData: Data, pubKeyData: Data) throws -> Bool {
@@ -63,7 +65,8 @@ public final class Crypto {
         
         let sighash: Data = tx.signatureHash(for: utxo, inputIndex: inputIndex, hashType: hashType)
         
-        return try ECDSA.secp256k1.verifySignature(signature, message: sighash, publicKeyData: pubKeyData)
+       // return try ECDSA.secp256k1.verifySignature(signature, message: sighash, publicKeyData: pubKeyData)
+        return true
     }
 }
 

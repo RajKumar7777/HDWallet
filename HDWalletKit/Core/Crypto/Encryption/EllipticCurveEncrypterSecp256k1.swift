@@ -6,12 +6,12 @@
 //  Copyright © 2018 Essentia. All rights reserved.
 //
 
-import secp256k1
+//import secp256k1
 import CryptoSwift
 
 public class EllipticCurveEncrypterSecp256k1 {
     // holds internal state of the c library
-    private let context: OpaquePointer
+  /*  private let context: OpaquePointer
     
     public init() {
         context = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN | SECP256K1_CONTEXT_VERIFY))!
@@ -115,5 +115,5 @@ public class EllipticCurveEncrypterSecp256k1 {
             secp256k1_ec_pubkey_serialize(context, p, &outputLen, &publicKey, compressedFlags)
         }
         return output
-    }
+    }*/
 }

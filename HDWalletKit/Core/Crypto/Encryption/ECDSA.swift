@@ -7,12 +7,12 @@
 //
 
 import Foundation
-import secp256k1
+//import secp256k1
 
 public final class ECDSA {
     public static let secp256k1 = ECDSA()
     
-    public static func sign(_ data: Data, privateKey: Data) throws -> Data {
+   /* public static func sign(_ data: Data, privateKey: Data) throws -> Data {
         let ctx = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN))!
         defer { secp256k1_context_destroy(ctx) }
         
@@ -57,5 +57,5 @@ public final class ECDSA {
         };
         secp256k1_context_destroy(ctx);
         return true
-    }
+    }*/
 }

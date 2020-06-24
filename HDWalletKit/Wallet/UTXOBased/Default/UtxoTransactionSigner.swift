@@ -25,7 +25,7 @@ public struct UtxoTransactionSigner: UtxoTransactionSignerInterface {
         for (i, utxo) in unsignedTransaction.utxos.enumerated() {
             // Sign transaction hash
             let sighash: Data = signingTransaction.signatureHash(for: utxo.output, inputIndex: i, hashType: hashType)
-            let signature: Data = try ECDSA.sign(sighash, privateKey: key.raw)
+            let signature: Data = try Data.init()
             let txin = signingInputs[i]
             let pubkey = key.publicKey
             
